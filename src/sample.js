@@ -1,5 +1,16 @@
-export const tasks = [
-    {_id:0, title: 'Do homework', description: 'lorem ipusm', number: 100},
-    {_id:1, title: 'Run ', description: 'lorem ipusm', number: 100},
-    {_id:2, title: 'Sleep', description: 'lorem ipusm', number: 100},
-]
+export const users = [
+  {
+    _id: "1",
+    firstName: "Cristian",
+    lastName: "Montaño",
+    username: "criscamilomr",
+    email: "cristian.camilo.montano@correounivalle.edu.co",
+  },
+  {
+    _id: "2",
+    firstName: "Santiago",
+    lastName: "Ospitia",
+    username: "saos",
+    email: "santiago.ospitia@correounivalle.edu.co",
+  },
+];

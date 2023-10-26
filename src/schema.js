@@ -4,6 +4,7 @@ import { resolvers } from "./resolvers.js";
 const typeDefs = `
     type Query{
         hello: String
+        users(id: Int): User
     }
 
     type User{
@@ -23,7 +24,7 @@ const typeDefs = `
     }
      
     type Mutation {
-        createUser(input: UserInput): User
+        createUser: User
     }
 
 `;
