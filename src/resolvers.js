@@ -1,4 +1,5 @@
 import { users } from "./sample.js";
+import { addUser } from "./services/userService.js";
 export const resolvers = {
   Query: {
     hello: () => {
@@ -9,16 +10,9 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createUser() {
-      var newUser = {
-        _id: "3",
-        firstName: "Sant",
-        lastName: "Trujillo",
-        username: "quierocarne",
-        email: "quierocarne69@gmail.com",
-      };
-      users.push(newUser);
-      return newUser;
+    async createUser(_, { input }) {
+      await addUser(input);
+      return input;
     },
   },
 };
