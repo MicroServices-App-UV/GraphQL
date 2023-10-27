@@ -9,3 +9,13 @@ export const addUser = async (userData) => {
     throw error;
   }
 };
+
+export const getUser = async (userId) => {
+  console.log("He entrau jijijij");
+  try {
+    const user = await User.find({ _id: userId });
+    return user[0];
+  } catch (err) {
+    throw err;
+  }
+};

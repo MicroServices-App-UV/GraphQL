@@ -1,12 +1,12 @@
-import { users } from "./sample.js";
-import { addUser } from "./services/userService.js";
+import { addUser, getUser } from "./services/userService.js";
 export const resolvers = {
   Query: {
     hello: () => {
       return "Hello World with GraphQL";
     },
-    users: (root, { id }) => {
-      return users[id - 1];
+    users: async (root, { id }) => {
+      var user = await getUser(id);
+      return user;
     },
   },
   Mutation: {

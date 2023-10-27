@@ -4,7 +4,7 @@ import { resolvers } from "./resolvers.js";
 const typeDefs = `
     type Query{
         hello: String
-        users(id: Int): User
+        users(id: String): User
     }
 
     type User{
