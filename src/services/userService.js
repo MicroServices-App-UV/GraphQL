@@ -9,12 +9,19 @@ export const addUser = async (userData) => {
     throw error;
   }
 };
-
 export const getUser = async (userId) => {
-  console.log("He entrau jijijij");
   try {
-    const user = await User.find({ _id: userId });
-    return user[0];
+    const user = await fetch(`http://localhost:4000/user/${userId}`);
+    return user.json();
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const sendID = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:4000/user/${userId}`);
+    return res.json();
   } catch (err) {
     throw err;
   }

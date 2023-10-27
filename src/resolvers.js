@@ -1,8 +1,9 @@
-import { addUser, getUser } from "./services/userService.js";
+import { addUser, getUser, sendID } from "./services/userService.js";
 export const resolvers = {
   Query: {
-    hello: () => {
-      return "Hello World with GraphQL";
+    sendID: async (root, { id }) => {
+      var res = await sendID(id);
+      return res;
     },
     users: async (root, { id }) => {
       var user = await getUser(id);
