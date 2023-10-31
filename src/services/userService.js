@@ -33,3 +33,22 @@ export const sendID = async (id) => {
     throw err;
   }
 };
+
+export const updateUserInAuth = async (userData) => {
+  try {
+    const response = await fetch(`http://localhost:4000/updateuser`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const updatedUserData = await response.json();
+
+    return updatedUserData;
+  } catch (error) {
+    throw error;
+  }
+}
+

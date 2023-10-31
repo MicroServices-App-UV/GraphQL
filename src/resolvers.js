@@ -1,4 +1,4 @@
-import { addUser, getUser, sendID } from "./services/userService.js";
+import { addUser, getUser, sendID, updateUserInAuth } from "./services/userService.js";
 export const resolvers = {
   Query: {
     sendID: async (root, { id }) => {
@@ -15,6 +15,11 @@ export const resolvers = {
       await addUser(input);
       return input;
     },
+    async updateUser(_, { input }) {
+      console.log("input",input)
+      var res = await updateUserInAuth(input)
+      return res;
+    }
   },
 };
 
