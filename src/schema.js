@@ -6,7 +6,7 @@ const typeDefs = `
         sendID(id: String): String
         users(id: String): User
     }
-
+    
     type User{
         _id: String!
         firstName: String!

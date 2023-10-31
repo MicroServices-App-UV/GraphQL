@@ -20,8 +20,9 @@ export const getUser = async (userId) => {
 
 export const sendID = async (id) => {
   try {
-    const res = await fetch(`http://localhost:4000/iduser/${id}`);
-    return res.json();
+    //const res = await fetch(`http://localhost:4000/iduser/${id}`); // Microservicio Trujillo
+    const resMenu = await fetch(`http://localhost:3333/api/user/${id}`); //Microservicio Ospitia
+    return resMenu.json();
   } catch (err) {
     throw err;
   }
