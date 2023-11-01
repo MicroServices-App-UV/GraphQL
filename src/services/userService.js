@@ -1,14 +1,5 @@
 import User from "../models/User.js";
 
-export const addUser = async (userData) => {
-  try {
-    const newUser = new User(userData);
-    await newUser.save();
-    return newUser;
-  } catch (error) {
-    throw error;
-  }
-};
 export const getUser = async (userId) => {
   try {
     const user = await fetch(`http://localhost:4000/user/${userId}`);
@@ -26,8 +17,8 @@ export const sendID = async (id) => {
     const dataTrujillo = await resTrujillo.json();
     const dataOspitia = await resOspitia.json();
 
-    console.log("os",dataOspitia)
-    console.log("tr",dataTrujillo)
+    console.log("os", dataOspitia);
+    console.log("tr", dataTrujillo);
     return { dataTrujillo, dataOspitia };
   } catch (err) {
     throw err;
@@ -36,19 +27,18 @@ export const sendID = async (id) => {
 
 export const updateUserInAuth = async (userData) => {
   try {
-    const response = await fetch(`http://localhost:4000/updateuser`, {
-      method: 'PUT',
+    const data = await JSON.stringify(userData);
+    const id = userData._id;
+    const response = await fetch(`http://localhost:4000/user/${id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: data,
     });
-
     const updatedUserData = await response.json();
-
     return updatedUserData;
   } catch (error) {
     throw error;
   }
-}
-
+};
