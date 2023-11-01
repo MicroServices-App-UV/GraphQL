@@ -11,15 +11,15 @@ export const getUser = async (userId) => {
 
 export const sendID = async (id) => {
   try {
-    const resTrujillo = await fetch(`http://localhost:4000/iduser/${id}`); // Microservicio Trujillo
-    const resOspitia = await fetch(`http://localhost:3333/api/user/${id}`); // Microservicio Ospitia
+    const resTrujillo = await fetch(`http://localhost:5000/iduser/${id}`); // Microservicio Trujillo
+    // const resOspitia = await fetch(`http://localhost:3333/api/user/${id}`); // Microservicio Ospitia
 
     const dataTrujillo = await resTrujillo.json();
-    const dataOspitia = await resOspitia.json();
+    // const dataOspitia = await resOspitia.json();
 
-    console.log("os", dataOspitia);
+    // console.log("os", dataOspitia);
     console.log("tr", dataTrujillo);
-    return { dataTrujillo, dataOspitia };
+    return dataTrujillo.idd;
   } catch (err) {
     throw err;
   }
@@ -44,5 +44,5 @@ export const updateUserInAuth = async (userData) => {
 };
 
 export const sendMealResolver = async (meal) => {
-  console.log(meal)
-}
+  console.log(meal);
+};
