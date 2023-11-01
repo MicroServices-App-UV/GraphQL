@@ -42,3 +42,7 @@ export const updateUserInAuth = async (userData) => {
     throw error;
   }
 };
+
+export const sendMealResolver = async (meal) => {
+  console.log(meal)
+}

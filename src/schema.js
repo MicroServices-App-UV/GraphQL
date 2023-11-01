@@ -15,6 +15,14 @@ const typeDefs = `
         email: String!
     }
 
+    type Meal {
+        product_id: String!
+        user_id: String!
+        name: String!
+        count: Int!
+        price: Int!
+    }
+
     input UserInput{
         _id: String!
         firstName: String!
@@ -23,8 +31,17 @@ const typeDefs = `
         email: String!
     }
      
+    input mealInput {
+        product_id: String!
+        user_id: String!
+        name: String!
+        count: Int!
+        price: Int!
+    }
+
     type Mutation {
         updateUser(input: UserInput): User
+        sendMeal(input: mealInput): Meal
     }
 
 `;

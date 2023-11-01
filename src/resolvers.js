@@ -1,4 +1,4 @@
-import { getUser, sendID, updateUserInAuth } from "./services/userService.js";
+import { getUser, sendID, updateUserInAuth, sendMealResolver } from "./services/userService.js";
 export const resolvers = {
   Query: {
     sendID: async (root, { id }) => {
@@ -16,5 +16,11 @@ export const resolvers = {
       var res = await updateUserInAuth(input);
       return res;
     },
+
+    sendMeal: async (_, { input }) => {
+      console.log( 'Este es el input', input ) 
+      //var res = await sendMealResolver(input)
+      //return res
+    }
   },
 };
