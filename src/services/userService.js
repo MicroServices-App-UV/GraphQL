@@ -2,7 +2,7 @@ import User from "../models/User.js";
 
 export const getUser = async (userId) => {
   try {
-    const user = await fetch(`http://localhost:4000/user/${userId}`);
+    const user = await fetch(`http://localhost:5000/user/${userId}`);
     return user.json();
   } catch (err) {
     throw err;
@@ -11,7 +11,7 @@ export const getUser = async (userId) => {
 
 export const sendID = async (id) => {
   try {
-    const resTrujillo = await fetch(`http://localhost:5000/iduser/${id}`); // Microservicio Trujillo
+    const resTrujillo = await fetch(`http://localhost:4000/iduser/${id}`); // Microservicio Trujillo
     // const resOspitia = await fetch(`http://localhost:3333/api/user/${id}`); // Microservicio Ospitia
 
     const dataTrujillo = await resTrujillo.json();
@@ -29,7 +29,7 @@ export const updateUserInAuth = async (userData) => {
   try {
     const data = await JSON.stringify(userData);
     const id = userData._id;
-    const response = await fetch(`http://localhost:4000/user/${id}`, {
+    const response = await fetch(`http://localhost:5000/user/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
